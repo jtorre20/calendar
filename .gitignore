@@ -8,8 +8,6 @@
 # testing
 /coverage
 
-# production
-/build
 
 # misc
 .DS_Store
@@ -17,6 +15,12 @@
 .env.development.local
 .env.test.local
 .env.production.local
+
+#.gitignore
+src/*
+public/*
+build/static/css/*.map
+build/static/js/*.map
 
 npm-debug.log*
 yarn-debug.log*

@@ -13,14 +13,14 @@ class Calendar extends Component {
 
   }
 
-  renderHeader = () => {
+  renderHeader(){
     const dateFormat = "MMMM YYYY"
 
     return (
       <div className="header row flex-middle">
         <div className="col col-start">
           <div className="icon" onClick={this.prevMonth}>
-            Previous Month
+            arrow_back
           </div>
         </div>
         <div className="col col-center">
@@ -30,14 +30,14 @@ class Calendar extends Component {
         </div>
         <div className="col col-end">
           <div className="icon" onClick={this.nextMonth}>
-            Next Month
+            arrow_forward
           </div>
         </div>
       </div>
     )
   }
 
-  renderDays = () => {
+  renderDays() {
     const dateFormat = "dddd"
     const days = []
 
@@ -45,7 +45,7 @@ class Calendar extends Component {
 
     for(let i=0; i < 7; i++){
       days.push(
-        <div className="col col-center">
+        <div className="col col-center" key={i}>
         {dateFns.format(dateFns.addDays(startDate, i), dateFormat)}
         </div> 
       )
@@ -54,37 +54,37 @@ class Calendar extends Component {
     return <div className="days row">{days}</div>
   }
 
-  renderCells = () => {
+  renderCells(){
     const { currentMonth, selectedDate } = this.state;
     const monthStart = dateFns.startOfMonth(currentMonth);
     const monthEnd = dateFns.endOfMonth(monthStart);
     const startDate = dateFns.startOfWeek(monthStart);
     const endDate = dateFns.endOfWeek(monthEnd);
-
+    
     const dateFormat = "D";
     const rows = [];
-
+    
     let days = [];
     let day = startDate;
     let formattedDate = "";
-
+    
     while (day <= endDate) {
       for (let i = 0; i < 7; i++){
         formattedDate = dateFns.format(day, dateFormat);
         const cloneDay = day;
         days.push(
           <div className={`col cell ${
-            !dateFns.isSameDay(day, monthStart)
+            !dateFns.isSameMonth(day, monthStart)
             ? "disabled"
             : dateFns.isSameDay(day, selectedDate) ? "selected" : "" }`}
             key={day}
             onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
-          >
+            >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
           </div>
         )
-          day = dateFns.addDays(day, 1)
+        day = dateFns.addDays(day, 1)
       }
       rows.push(
         <div className="row" key={day}>
@@ -92,12 +92,15 @@ class Calendar extends Component {
         </div>
       );
       days = []
+      // debugger
     }
     return <div className="body">{rows}</div>;
   }
 
   onDateClick = day => {
-
+    this.setState({
+      selectedDate: day
+    })
   }
 
   prevMonth = () => {

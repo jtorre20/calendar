@@ -8,9 +8,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
          <div id="logo">
-          <span className="icon"></span>
+          <span className="icon">today</span>
           <div>
-            <b>Calendar</b>
+            <b>Julio's Calendar</b>
           </div>
          </div>
         </header>

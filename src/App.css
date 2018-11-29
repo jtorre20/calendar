@@ -33,7 +33,7 @@
 
 /* FONT IMPORTS */
 
-/* @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 .icon {
@@ -52,7 +52,7 @@
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: 'liga';
-} */
+} 
 
 
 /* VARIABLES */
@@ -69,9 +69,9 @@
 
 /* GENERAL */
 
-/* * {
+/* {
   box-sizing: border-box;
-}
+}  */
 
 body {
     font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -83,20 +83,20 @@ body {
     position: relative;
 }
 
-header {
+/* header {
   display: block;
   width: 100%;
   padding: 1.75em 0;
   border-bottom: 1px solid var(--border-color);
   background: var(--neutral-color);
-}
+} */
 
-header #logo {
+/* header #logo {
   font-size: 175%;
   text-align: center;
   color: var(--main-color);
   line-height: 1;
-}
+} */
 
 header #logo .icon {
   padding-right: .25em;
